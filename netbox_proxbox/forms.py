@@ -1,14 +1,12 @@
 from django import forms
 
-from utilities.forms import BootstrapMixin
 
 from .models import ProxmoxVM
 
 from virtualization.models import VirtualMachine, Cluster
 
 # 'forms.ModelForm' is a Django helper class  that allows building forms from models
-# 'BootstrapMixin' comes from Netbox and adds CSS classes
-class ProxmoxVMForm(BootstrapMixin, forms.ModelForm):
+class ProxmoxVMForm(forms.ModelForm):
     """Form for creating a new BgpPeering object."""
 
     class Meta:
@@ -24,7 +22,7 @@ class ProxmoxVMForm(BootstrapMixin, forms.ModelForm):
             "disk",
         ]
  
-class ProxmoxVMFilterForm(BootstrapMixin, forms.ModelForm):
+class ProxmoxVMFilterForm(forms.ModelForm):
     """Form for filtering ProxmoxVM instances."""
 
     q = forms.CharField(required=False, label="Search")
