@@ -1,6 +1,6 @@
 """Template contet temporarily disabled
 
-from extras.plugins import PluginTemplateExtension
+from netbox.plugins import PluginTemplateExtension
 from .models import ProxmoxVM
 
 
