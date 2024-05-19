@@ -37,6 +37,6 @@ class ProxboxConfig(PluginConfig):
         }
     }
 
-config = ProxboxConfig
+config = ProxboxConfig.split()
 
 from . import proxbox_api
