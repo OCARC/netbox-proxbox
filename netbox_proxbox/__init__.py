@@ -1,13 +1,16 @@
 # Netbox plugin related import
+from importlib.metadata import metadata
 from netbox.plugins import PluginConfig
 
+metadata = metadata('netbox_proxbox')
+
 class ProxboxConfig(PluginConfig):
-    name = "netbox_proxbox"
-    verbose_name = "Proxbox"
-    description = "Integrates Proxmox and Netbox"
-    version = "0.0.5"
-    author = "Emerson Felipe (@emersonfelipesp)"
-    author_email = "emerson.felipe@nmultifibra.com.br"
+    name = metadata.get('Name').replace('-', '_')
+    verbose_name = metadata.get('Summary')
+    description = metadata.get('Description')
+    version = metadata.get('Version')
+    author = metadata.get('Author')
+    author_email = metadata.get('Author-email')
     base_url = "proxbox"
     required_settings = []
     default_settings = {
@@ -37,6 +40,4 @@ class ProxboxConfig(PluginConfig):
         }
     }
 
-config = ProxboxConfig.split()
-
-from . import proxbox_api
+config = ProxboxConfig
