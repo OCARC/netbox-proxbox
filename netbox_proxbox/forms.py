@@ -1,6 +1,6 @@
 from django import forms
 
-from netbox.forms import BootstrapMixin
+from utilities.forms import BootstrapMixin
 
 from .models import ProxmoxVM
 
